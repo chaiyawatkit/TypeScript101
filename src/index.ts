@@ -1,15 +1,13 @@
-const enum Role {
-  Admin,
-  Moderator,
-  Editor,
+interface Person {
+  name: string;
+  age: number;
+  gender: string;
 }
-const role: Role = Role.Moderator;
-console.log(role);
+let person: Person;
 
-// enum Role {
-//     Admin,
-//     Moderator,
-//     Editor,
-//   }
-//   const role: Role = Role.Moderator;
-//   console.log(Role[1]);
+person = {
+  name: 'kuk',
+  age: 25,
+  gender: 'male',
+};
+console.log(person);
