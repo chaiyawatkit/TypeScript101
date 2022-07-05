@@ -1,12 +1,10 @@
-interface Person {
-  name: string;
-  age: number;
-  gender: string;
-}
+// function getFullName(fname: string, lname: string) {
+//   return `${fname} ${lname}`;
+// }
 
-const person: Person = {
-  name: 'kuk',
-  age: 25,
-  gender: 'male',
-  nickname: 'mama',
+// const getFullName = function (fname: string, lname: string) {
+//   return `${fname} ${lname}`;
+// };
+const getFullName = (fname: string, lname: string) => {
+  return `${fname} ${lname}`;
 };
