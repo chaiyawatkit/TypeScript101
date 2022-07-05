@@ -1,13 +1,17 @@
-interface Person {
-  name: string;
-  age: number;
-  gender: string;
+interface Website {
+  url: string;
 }
-let person: Person;
-
-person = {
-  name: 'kuk',
-  age: 25,
-  gender: 'male',
+interface Article {
+  title: string;
+  content: string;
+}
+interface BlogPost extends Website, Article {
+  view: number;
+}
+const post: BlogPost = {
+  url: 'www.google.com',
+  title: 'extent interface',
+  content: '...',
+  view: 999,
 };
-console.log(person);
+console.log(post);
