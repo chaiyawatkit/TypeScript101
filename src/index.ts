@@ -1,8 +1,6 @@
-const uppercaseFirstLetter = (str: string | null | undefined) => {
-  if (typeof str === 'string') {
-    return str[0].toLocaleUpperCase();
-  }
-  return 'null';
+const fixed = (num: any) => {
+  return num.toFixed(2);
 };
-let str = uppercaseFirstLetter(null);
-console.log(str);
+
+let num = 10.511119;
+console.log(fixed(num));
