@@ -1,12 +1,15 @@
-interface Person {
-  fName: string;
-  lName: string;
-  middleName?: string;
-  readonly gender: 'Male' | 'Female';
-}
-
-let kuk: Person = {
-  fName: 'kuk',
-  lName: 'kik',
-  gender: 'Male',
+type Website = {
+  url: string;
 };
+type Article = {
+  title: string;
+  content: string;
+};
+type BlogPost = Website &
+  Article & {
+    view: number;
+  };
+
+type Role = 'Admin' | 'Moderator' | 'Editor';
+let role: Role = 'Admin';
+console.log(role);
