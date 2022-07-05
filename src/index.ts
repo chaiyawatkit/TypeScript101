@@ -1,15 +1,12 @@
-type Website = {
-  url: string;
-};
-type Article = {
-  title: string;
-  content: string;
-};
-type BlogPost = Website &
-  Article & {
-    view: number;
-  };
+interface Person {
+  name: string;
+  age: number;
+  gender: string;
+}
 
-type Role = 'Admin' | 'Moderator' | 'Editor';
-let role: Role = 'Admin';
-console.log(role);
+const person: Person = {
+  name: 'kuk',
+  age: 25,
+  gender: 'male',
+  nickname: 'mama',
+};
