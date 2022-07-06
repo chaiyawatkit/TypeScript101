@@ -1,25 +1,16 @@
-interface Triangle {
-  type: 'triangle';
-  base: number;
-  height: number;
-}
-interface Regtangle {
-  type: 'regtangle';
-  width: number;
-  height: number;
+interface Age {
+  age: number;
 }
 
-type shape = Triangle | Regtangle;
+interface Persion {
+  name: string;
+}
 
-const area = (s: shape) => {
-  switch (s.type) {
-    case 'triangle':
-      return 0.5 * s.height * s.base;
-    case 'regtangle':
-      return s.width * s.height;
-    default:
-      break;
-  }
+type human = Age & Persion;
+
+let persion: human = {
+  age: 14,
+  name: 'kuk',
 };
 
-console.log(area({ height: 5, width: 5, type: 'regtangle' }));
+console.log(persion);
