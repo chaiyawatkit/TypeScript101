@@ -1,9 +1,11 @@
 class BankAccount {
-  protected balance: number;
+  // protected balance: number;
 
-  constructor(balance: number) {
-    this.balance = balance;
-  }
+  // constructor(balance: number) {
+  //   this.balance = balance;
+  // }
+
+  constructor(protected balance: number) {}
 
   withdraw(amount: number) {
     if (amount <= this.balance) this.balance -= amount;
@@ -14,11 +16,14 @@ class BankAccount {
 }
 class SavingAccount extends BankAccount {
   static readonly interestRate = 3.5;
-  private readonly debitCard: number;
+  // private readonly debitCard: number;
 
-  constructor(balance: number, debitCard: number) {
+  // constructor(balance: number, debitCard: number) {
+  //   super(balance);
+  //   this.debitCard = debitCard;
+  // }
+  constructor(balance: number, private readonly debitCard: number) {
     super(balance);
-    this.debitCard = debitCard;
   }
 
   public getInterest() {
