@@ -1,20 +1,6 @@
-interface Dict<T> {
-  [key: string]: T;
-}
-
-// type Dict<T> = {
-//   [key: string]: T;
-// }
-const initialize = <T>(keys: string[], value: T): Dict<T> => {
-  return keys.reduce(
-    (result, key) => ({
-      ...result,
-      [key]: value,
-    }),
-    {}
-  );
+const merge = <T extends object, U extends object>(obj1: T, obj2: U) => {
+  return { ...obj1, ...obj2 };
 };
 
-const result = initialize(['a', 'b', 'c'], 0);
-
+const result = merge({ name: 'kuk' }, { age: 12 });
 console.log(result);
