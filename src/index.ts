@@ -1,5 +1,5 @@
 class BankAccount {
-  balance: number;
+  protected balance: number;
 
   constructor(balance: number) {
     this.balance = balance;
@@ -13,21 +13,21 @@ class BankAccount {
   }
 }
 class SavingAccount extends BankAccount {
-  static interestRate = 3.5;
-  debitCard: number;
+  static readonly interestRate = 3.5;
+  private readonly debitCard: number;
 
   constructor(balance: number, debitCard: number) {
     super(balance);
     this.debitCard = debitCard;
   }
 
-  getInterest() {
+  public getInterest() {
     return this.balance * SavingAccount.interestRate;
   }
 }
 
 class FixdAccount extends BankAccount {
-  static interestRate = 5;
+  static readonly interestRate = 5;
 
   constructor(balance: number) {
     super(balance);
@@ -40,7 +40,7 @@ class FixdAccount extends BankAccount {
 }
 
 const myAcc1 = new SavingAccount(100, 12345);
+
 myAcc1.deposit(100);
-console.log(myAcc1.balance);
-myAcc1.withdraw(100);
-console.log(myAcc1.balance);
+
+console.log(myAcc1.getInterest());
