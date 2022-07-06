@@ -1,8 +1,18 @@
-type varicalAlignmaent = 'top' | 'middle' | 'bottom';
-type horizontalAlignmaent = 'top' | 'middle' | 'bottom';
+interface Human {
+  name: string;
+  talk: () => void;
+}
 
-type Alignmaent = `${varicalAlignmaent} - ${horizontalAlignmaent}`;
+interface Cat {
+  name: string;
+  walk: () => void;
+}
 
-const alignBox = (aligment: Alignmaent) => {};
+const person: Human | Cat = {
+  name: 'kuk',
+  talk() {
+    console.log('test');
+  },
+};
 
-alignBox('middle - bottom');
+person.talk();
