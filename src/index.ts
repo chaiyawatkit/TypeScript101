@@ -1,52 +1,26 @@
-abstract class BankAccount {
-  // protected balance: number;
+const last = <T>(arr: T[], count: number) => {
+  return arr.slice(arr.length - count);
+};
+last<number>([1, 2, 3, 4, 5], 3); //[3,4,5]
 
-  // constructor(balance: number) {
-  //   this.balance = balance;
-  // }
+last<string>(['A', 'B', 'C', 'D', 'E'], 2); //[D,E]
 
-  constructor(protected balance: number) {}
+class Stack<T> {
+  private items: T[] = [];
 
-  withdraw(amount: number) {
-    if (amount <= this.balance) this.balance -= amount;
+  push(items: T) {
+    this.items.push(items);
   }
-  deposit(amount: number) {
-    if (amount > 0) this.balance += amount;
-  }
-  abstract getInterest(): void;
-}
-class SavingAccount extends BankAccount {
-  static readonly interestRate = 3.5;
-  // private readonly debitCard: number;
-
-  // constructor(balance: number, debitCard: number) {
-  //   super(balance);
-  //   this.debitCard = debitCard;
-  // }
-  constructor(balance: number, private readonly debitCard: number) {
-    super(balance);
-  }
-
-  public getInterest() {
-    return this.balance * SavingAccount.interestRate;
+  pop(): T | undefined {
+    return this.items.pop();
   }
 }
 
-class FixdAccount extends BankAccount {
-  static readonly interestRate = 5;
+const s = new Stack<number>();
+s.push(1);
+s.push(2);
+s.push(3);
 
-  constructor(balance: number) {
-    super(balance);
-  }
+s.pop();
 
-  getInterest() {
-    if (this.balance < 10000) return this.balance;
-    return this.balance * FixdAccount.interestRate;
-  }
-}
-
-const myAcc1 = new SavingAccount(100, 12345);
-
-myAcc1.deposit(100);
-
-console.log(myAcc1.getInterest());
+console.log(s);
