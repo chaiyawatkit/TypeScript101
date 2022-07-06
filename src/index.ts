@@ -1,4 +1,4 @@
-class BankAccount {
+abstract class BankAccount {
   // protected balance: number;
 
   // constructor(balance: number) {
@@ -13,6 +13,7 @@ class BankAccount {
   deposit(amount: number) {
     if (amount > 0) this.balance += amount;
   }
+  abstract getInterest(): void;
 }
 class SavingAccount extends BankAccount {
   static readonly interestRate = 3.5;
