@@ -1,18 +1,25 @@
-interface Human {
-  name: string;
-  talk: () => void;
+interface Triangle {
+  type: 'triangle';
+  base: number;
+  height: number;
+}
+interface Regtangle {
+  type: 'regtangle';
+  width: number;
+  height: number;
 }
 
-interface Cat {
-  name: string;
-  walk: () => void;
-}
+type shape = Triangle | Regtangle;
 
-const person: Human | Cat = {
-  name: 'kuk',
-  talk() {
-    console.log('test');
-  },
+const area = (s: shape) => {
+  switch (s.type) {
+    case 'triangle':
+      return 0.5 * s.height * s.base;
+    case 'regtangle':
+      return s.width * s.height;
+    default:
+      break;
+  }
 };
 
-person.talk();
+console.log(area({ height: 5, width: 5, type: 'regtangle' }));
