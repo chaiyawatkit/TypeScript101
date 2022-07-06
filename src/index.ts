@@ -1,18 +1,8 @@
-interface Course {
-  title: string;
-  credit: number;
-}
-
-type CourseReadOnly = {
-  readonly [K in keyof Course]: Course[K];
+type Person = {
+  name: string;
+  age: number;
 };
 
-type CourseReadOnlyWithSemaster = CourseReadOnly & { semaster: string };
-
-type CourseOptional = {
-  [K in keyof Course]?: Course[K];
-};
-
-type CourseReadOnlyReauired = {
-  readonly [K in keyof CourseOptional]-?: CourseOptional[K];
+type PersonSub = {
+  [K in keyof Person as `${K}Changed`]: (key: K, value: Person[K]) => void;
 };
