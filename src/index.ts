@@ -1,16 +1,20 @@
-interface Age {
-  age: number;
-}
-
-interface Persion {
+interface Person {
   name: string;
+  age: number;
+  address: string;
 }
+type PersonKeys = keyof Person;
+type PersonAgeType = Person['age'];
+type PersonValues = Person[keyof Person];
 
-type human = Age & Persion;
-
-let persion: human = {
-  age: 14,
+let test: Person = {
   name: 'kuk',
+  age: 2,
+  address: '192/142 bkk',
 };
 
-console.log(persion);
+const printValue = (key: keyof Person) => {
+  console.log(test[key]);
+};
+
+printValue('name');
