@@ -1,18 +1,46 @@
-class Person {
-  name: string;
-  age: number;
-  constructor(name: string, age: number) {
-    this.name = name;
-    this.age = age;
+class BankAccount {
+  balance: number;
+
+  constructor(balance: number) {
+    this.balance = balance;
   }
-  printDetile() {
-    console.log('name', this.name, 'age', this.age);
+
+  withdraw(amount: number) {
+    if (amount <= this.balance) this.balance -= amount;
+  }
+  deposit(amount: number) {
+    if (amount > 0) this.balance += amount;
+  }
+}
+class SavingAccount extends BankAccount {
+  static interestRate = 3.5;
+  debitCard: number;
+
+  constructor(balance: number, debitCard: number) {
+    super(balance);
+    this.debitCard = debitCard;
+  }
+
+  getInterest() {
+    return this.balance * SavingAccount.interestRate;
   }
 }
 
-let somchai = new Person('somchai', 24);
-somchai.age;
-somchai.name;
-somchai.printDetile();
-let somsree = new Person('somsree', 18);
-somsree.printDetile();
+class FixdAccount extends BankAccount {
+  static interestRate = 5;
+
+  constructor(balance: number) {
+    super(balance);
+  }
+
+  getInterest() {
+    if (this.balance < 10000) return this.balance;
+    return this.balance * FixdAccount.interestRate;
+  }
+}
+
+const myAcc1 = new SavingAccount(100, 12345);
+myAcc1.deposit(100);
+console.log(myAcc1.balance);
+myAcc1.withdraw(100);
+console.log(myAcc1.balance);
