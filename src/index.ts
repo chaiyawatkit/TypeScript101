@@ -1,6 +1,3 @@
-const merge = <T extends object, U extends object>(obj1: T, obj2: U) => {
-  return { ...obj1, ...obj2 };
-};
-
-const result = merge({ name: 'kuk' }, { age: 12 });
-console.log(result);
+type NumOrString = string[] | number[] | number | string | undefined;
+type ArrayFilter<T> = T extends unknown[] ? T : never;
+type ArrayOnly = ArrayFilter<NumOrString>;
